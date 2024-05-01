@@ -15,8 +15,8 @@ def main(input_str):
 
     try:
         # Преобразуем операнды в целые числа
-        num1 = float(operand1)
-        num2 = float(operand2)
+        num1 = int(operand1)
+        num2 = int(operand2)
 
         # Проверяем, что числа от 1 до 10
         if not (1 <= num1 <= 10 and 1 <= num2 <= 10):
@@ -24,15 +24,15 @@ def main(input_str):
 
         # Выполняем арифметическую операцию в зависимости от оператора
         if operator == '+':
-            result = int(num1 + num2)
+            result = (num1 + num2)
         elif operator == '-':
-            result = int(num1 - num2)
+            result = (num1 - num2)
         elif operator == '*':
-            result = int(num1 * num2)
+            result = (num1 * num2)
         elif operator == '/':
             if num2 == 0:
                 return "Error: Division by zero"
-            result = int(num1 / num2)  # целочисленное деление
+            result = int(num1 // num2)  # целочисленное деление
         else:
             return "Invalid operator"
 
@@ -43,7 +43,7 @@ def main(input_str):
         return "Invalid operands"
 
 # Пример использования
-expression = "7.5 / 3"
+expression = "7 / 3"
 result = main(expression)
 print("Output:", result)  # Output: "3"
 

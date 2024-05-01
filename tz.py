@@ -3,7 +3,7 @@
 def main(input_str):
     # Разделяем строку на части, чтобы получить операнды и оператор
     parts = input_str.split()
-    
+
     # Убеждаемся, что строка содержит три части (число, оператор, число)
     if len(parts) != 3:
         return "Invalid input"
@@ -14,21 +14,25 @@ def main(input_str):
     operand2 = parts[2]
 
     try:
-        # Преобразуем операнды в числа (float для работы с десятичными)
+        # Преобразуем операнды в целые числа
         num1 = float(operand1)
         num2 = float(operand2)
 
+        # Проверяем, что числа от 1 до 10
+        if not (1 <= num1 <= 10 and 1 <= num2 <= 10):
+            return "Invalid numbers: Must be between 1 and 10"
+
         # Выполняем арифметическую операцию в зависимости от оператора
         if operator == '+':
-            result = num1 + num2
+            result = int(num1 + num2)
         elif operator == '-':
-            result = num1 - num2
+            result = int(num1 - num2)
         elif operator == '*':
-            result = num1 * num2
+            result = int(num1 * num2)
         elif operator == '/':
             if num2 == 0:
                 return "Error: Division by zero"
-            result = num1 / num2
+            result = int(num1 / num2)  # целочисленное деление
         else:
             return "Invalid operator"
 
@@ -39,6 +43,7 @@ def main(input_str):
         return "Invalid operands"
 
 # Пример использования
-expression = "12 / 4"
+expression = "7.5 / 3"
 result = main(expression)
-print(result)  
+print("Output:", result)  # Output: "3"
+
